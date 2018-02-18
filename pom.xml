@@ -23,10 +23,15 @@
       <artifactId>slf4j-api</artifactId>
       <version>${org.slf4j-version}</version>
     </dependency>
+    <dependency>  
+	    <groupId>org.slf4j</groupId>  
+	    <artifactId>slf4j-log4j12</artifactId>  
+	    <version>${org.slf4j-version}</version>  
+	</dependency>
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <version>1.2.15</version>
+      <version>1.2.17</version>
       <exclusions>
 			<exclusion>
 				<groupId>javax.mail</groupId>
@@ -68,28 +73,5 @@
   	</resources>
   </build>
   
-  <profiles>
-  	<!-- loacl 默认激活 -->
-  	<profile>
-  		<id>local</id>
-  		<activation>
-  			<activeByDefault>true</activeByDefault>
-  			<property>
-  				<name>env</name>
-  				<value>local</value>
-  			</property>
-  		</activation>
-  		<build>
-  			<filters>
-  				<filter>src/main/assembly/local.properties</filter>
-  			</filters>
-  		</build>
-  		<properties>
-  			<app.version.type>${dev.version.type}</app.version.type>
-  			<juanpi.sdk.version.type>${dev.version.type}</juanpi.sdk.version.type>
-			<spi.version.type>${dev.version.type}</spi.version.type>
-  		</properties>
-  	</profile>
-  </profiles>
   <description>线程池</description>
 </project>
